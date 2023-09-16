@@ -8,14 +8,6 @@ const cors = require("cors");
 const helmet = require("helmet");
 const taskRouter = require("./routes/task.routes");
 
-app.get("/", (req, res) => {
-  res.send("Welome to Task Sync");
-});
-
-app.listen(process.env.PORT, () => {
-  console.log("server started");
-});
-
 app.use(
   cors({
     origin: "https://example.com",
@@ -35,4 +27,12 @@ app.use((err, req, res, next) => {
 
 app.use((req, res) => {
   res.status(404).json({ error: "Route not found" });
+});
+
+app.get("/", (req, res) => {
+  res.send("Welome to Task Sync");
+});
+
+app.listen(process.env.PORT, () => {
+  console.log("server started");
 });
