@@ -8,11 +8,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const taskRouter = require("./routes/task.routes");
 
-app.use(
-  cors({
-    origin: "https://example.com",
-  })
-);
+app.use(cors());
 
 app.use(helmet());
 
