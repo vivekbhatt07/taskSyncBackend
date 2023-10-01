@@ -12,13 +12,10 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    container:
+      image: mcr.microsoft.com/dotnet/aspnet:6.0
 
     steps:
-      - name: Set up Node.js 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-
       - name: Check out the code
         uses: actions/checkout@v2
 
@@ -61,3 +58,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E72218EEEC554D258CEF72997A12169E }}
           package: .
+
